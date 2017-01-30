@@ -32,7 +32,7 @@ class Connection:
                         try:
                                 s.connect(tuple(a))
                                 self.sockets.append(s)
-                        except:
+                        except socket.timeout:
                                 print "Cannot connect to: " + str(a[0]) + ':' + str(a[1])
                 return self.sockets
 
