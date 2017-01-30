@@ -1,3 +1,4 @@
+  GNU nano 2.2.6                File: client.py                            Modified
 
 #!usr/bin/python
 
@@ -25,9 +26,9 @@ class Connection:
                         s.settimeout(0.5)
                         try:
                                 s.connect(tuple(a))
+                                self.sockets.append(s)
                         except:
                                 print "Cannot connect to: " + str(a[0])
-                        self.sockets.append(s)
                         i += 1
                 return self.sockets
 test = Connection("test.txt")
