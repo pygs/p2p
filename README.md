@@ -15,6 +15,8 @@ P2P network written in python.
 
 ####Example
 ```python
-  test = Connection("test.txt")
-  print test.getPeers() #that will print array of peers
+  test = Connection("test.txt", 0.5)
+  test.getPeers()
+  print test.connect()
+  test.broadcast("test")
 ```
