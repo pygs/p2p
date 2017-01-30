@@ -12,6 +12,8 @@ P2P network written in python.
   - make TODO list
   - check at 2017.02.15
   - add progressbar from offchuck/textprogressbar to Connection.connect()
+  - listening thread
+  - add something like "datachain" with addresses of connected users
  
 
 ####Example
