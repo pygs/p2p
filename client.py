@@ -4,13 +4,17 @@
 import socket
 
 class Connection:
-        def __init__(self, path, timeout):
+        def __init__(self, path, *args, **kwargs):
                 self.path = path
-                self.timeout = float(timeout)
+                if kwargs.get('timeout', None):
+                        self.timeout = float(kwargs.get('timeout', None))
+                else:
+                        self.timeout = 0.5
                 f = open(self.path, 'r')
                 self.file =  f.readlines()
                 self.peers = []
                 self.sockets = []
+
         def getPeers(self):
                 for line in self.file:
                         print line
