@@ -23,7 +23,10 @@ class Connection:
                 i = 0
                 for a in self.peers:
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                        s.connect(tuple(a))
+                        try:
+                                s.connect(tuple(a))
+                        except:
+                                print "Cannot connect to: " + str(a[0])
                         self.sockets[i] = s
                         i += 1
                 return self.sockets
