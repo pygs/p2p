@@ -1,12 +1,12 @@
-  GNU nano 2.2.6                File: client.py                            Modified
 
 #!usr/bin/python
 
 import socket
 
 class Connection:
-        def __init__(self, path):
+        def __init__(self, path, timeout):
                 self.path = path
+                self.timeout = float(timeout)
                 f = open(self.path, 'r')
                 self.file =  f.readlines()
                 self.peers = []
@@ -23,7 +23,7 @@ class Connection:
                 i = 0
                 for a in self.peers:
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                        s.settimeout(0.5)
+                        s.settimeout(self.timeout)
                         try:
                                 s.connect(tuple(a))
                                 self.sockets.append(s)
@@ -31,7 +31,9 @@ class Connection:
                                 print "Cannot connect to: " + str(a[0])
                         i += 1
                 return self.sockets
-test = Connection("test.txt")
+
+test = Connection("test.txt", 0.5)
 test.getPeers()
 print test.connect()
+
 
