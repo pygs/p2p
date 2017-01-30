@@ -11,6 +11,7 @@ P2P network written in python.
 #### TODO:
   - make TODO list
   - check at 2017.02.15
+  - add progressbar from offchuck/textprogressbar to Connection.connect()
  
 
 ####Example
