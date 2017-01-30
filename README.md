@@ -5,6 +5,7 @@ P2P network written in python.
   - class Connection:
     - init(path) : getting path to file with peers, returns nothing
     - getPeers() : returning array of peers
+    - connect() : returning array of sockets
 
 #### TODO:
   - make TODO list
