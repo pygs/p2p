@@ -19,7 +19,7 @@ class Connection:
                         line[1] = int(line[1])
                         self.peers.append(line)
                 return self.peers
-        def connect(self):
+        def connect(self): #TODO: add progressbar from offchuck/textprogressbar
                 i = 0
                 for a in self.peers:
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
