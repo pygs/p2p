@@ -1,9 +1,10 @@
-
 #!usr/bin/python
 
 import socket
 
+
 class Connection:
+
         def __init__(self, path, *args, **kwargs):
                 self.path = path
                 if kwargs.get('timeout', None):
@@ -15,7 +16,7 @@ class Connection:
                 self.peers = []
                 self.sockets = []
 
-        def getPeers(self):
+        def getpeers(self):
                 for line in self.file:
                         print line
                         line = line.split(',')
@@ -23,6 +24,7 @@ class Connection:
                         line[1] = int(line[1])
                         self.peers.append(line)
                 return self.peers
+
         def connect(self): #TODO: add progressbar from offchuck/textprogressbar
                 i = 0
                 for a in self.peers:
@@ -35,8 +37,7 @@ class Connection:
                                 print "Cannot connect to: " + str(a[0])
                         i += 1
                 return self.sockets
-        
-        
+
         def broadcast(self, message):
                 ok = 0
                 failed = 0
@@ -51,7 +52,7 @@ class Connection:
 
 
 test = Connection("test.txt", 0.5)
-test.getPeers()
+test.getpeers()
 print test.connect()
 
 
