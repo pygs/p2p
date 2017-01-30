@@ -31,6 +31,20 @@ class Connection:
                                 print "Cannot connect to: " + str(a[0])
                         i += 1
                 return self.sockets
+        
+        
+        def broadcast(self, message):
+                ok = 0
+                failed = 0
+                for s in self.sockets:
+                        try:
+                                s.send(message)
+                                ok += 1
+                        except:
+                                failed += 1
+                print "Sended: " + str(ok)
+                print "Failed: " + str(failed)
+
 
 test = Connection("test.txt", 0.5)
 test.getPeers()
