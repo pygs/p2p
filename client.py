@@ -12,7 +12,7 @@ class Connection:
                 else:
                         self.timeout = 0.5
                 f = open(self.path, 'r')
-                self.file =  f.readlines()
+                self.file = f.readlines()
                 self.peers = []
                 self.sockets = []
 
@@ -25,8 +25,7 @@ class Connection:
                         self.peers.append(line)
                 return self.peers
 
-        def connect(self): #TODO: add progressbar from offchuck/textprogressbar
-                i = 0
+        def connect(self):  # TODO: add progressbar from offchuck/textprogressbar
                 for a in self.peers:
                         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         s.settimeout(self.timeout)
@@ -34,8 +33,7 @@ class Connection:
                                 s.connect(tuple(a))
                                 self.sockets.append(s)
                         except:
-                                print "Cannot connect to: " + str(a[0])
-                        i += 1
+                                print "Cannot connect to: " + str(a[0]) + ':' + str(a[1])
                 return self.sockets
 
         def broadcast(self, message):
@@ -45,7 +43,7 @@ class Connection:
                         try:
                                 s.send(message)
                                 ok += 1
-                        except:
+                        except socket.timeout:
                                 failed += 1
                 print "Sended: " + str(ok)
                 print "Failed: " + str(failed)
@@ -54,5 +52,6 @@ class Connection:
 test = Connection("test.txt", 0.5)
 test.getpeers()
 print test.connect()
+test.broadcast("xD")
 
 
