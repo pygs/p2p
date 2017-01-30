@@ -1,14 +1,15 @@
 # p2p
 P2P network written in python. 
 
-### TODO:
-  - make TODO list
-  - check at 2017.02.15
-  
-####Funcs:
+###Funcs:
   - class Connection:
     - init(path) : getting path to file with peers, returns nothing
     - getPeers() : returning array of peers
+
+#### TODO:
+  - make TODO list
+  - check at 2017.02.15
+ 
 
 ####Example
 ```python
