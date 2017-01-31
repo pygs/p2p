@@ -23,4 +23,5 @@ P2P network written in python.
   print test.getPeers() #will print array of peers
   test.connect()
   test.broadcast("test")
+  test.server()
 ```
