@@ -8,6 +8,7 @@ P2P network written in python.
     - connect() : returning array of sockets
     - broadcast(message) : sending message to all, returns number of sended messages
     - server() : recieve messages | should run as thread 
+    - sendinfo() : autosending messages, will be used to sending info about datachain(probably hashes)
 
 #### TODO:
   - make TODO list
