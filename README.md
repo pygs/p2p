@@ -7,7 +7,7 @@ P2P network written in python.
     - getPeers() : returning array of peers
     - connect() : returning array of sockets
     - broadcast(message) : sending message to all, returns number of sended messages
-    - server() : recieve messages
+    - server() : recieve messages | should run as thread 
 
 #### TODO:
   - make TODO list
