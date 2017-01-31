@@ -1,7 +1,8 @@
 #!usr/bin/python
 
 import socket
-
+import thread
+import time
 
 class Connection:
 
@@ -40,16 +41,18 @@ class Connection:
                 return self.sockets
 
         def broadcast(self, message):
+                self.connect()
                 ok = 0
                 failed = 0
                 for s in self.sockets:
                         try:
-                                s.send(message)
+                                s.sendall(message)
                                 ok += 1
                         except socket.timeout:
                                 failed += 1
                 print "Sended: " + str(ok)
                 print "Failed: " + str(failed)
+                self.sockets = []
 
         def server(self):
             self.mysocket.bind((self.ip, self.port))
@@ -60,11 +63,13 @@ class Connection:
                 print str(addr) + " | " + data
             return False
 
+        def sendinfo(self):
+            while 1:
+                self.broadcast(str(self.ip) + " | " + "hash or something")
+                time.sleep(1)
 
-test = Connection("test.txt", '127.0.0.1', 5000, timeout=0.5)
+
+test = Connection("test.txt", '127.0.0.1', 5005, timeout=0.5)
 test.getpeers()
 print test.connect()
-test.broadcast("xD")
-test.server()
-
-
+thread.start_new_thread(test.sendinfo())
