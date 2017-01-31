@@ -5,8 +5,11 @@ import socket
 
 class Connection:
 
-        def __init__(self, path, *args, **kwargs):
+        def __init__(self, path, ip, port, *args, **kwargs):
                 self.path = path
+                self.ip = ip
+                self.mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.port = port
                 if kwargs.get('timeout', None):
                         self.timeout = float(kwargs.get('timeout', None))
                 else:
@@ -48,10 +51,20 @@ class Connection:
                 print "Sended: " + str(ok)
                 print "Failed: " + str(failed)
 
+        def server(self):
+            self.mysocket.bind((self.ip, self.port))
+            while 1:
+                self.mysocket.listen(1)
+                conn, addr = self.mysocket.accept()
+                data = conn.recv(1024)
+                print str(addr) + " | " + data
+            return False
 
-test = Connection("test.txt", 0.5)
+
+test = Connection("test.txt", '127.0.0.1', 5000, timeout=0.5)
 test.getpeers()
 print test.connect()
 test.broadcast("xD")
+test.server()
 
 
