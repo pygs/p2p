@@ -30,7 +30,7 @@ class Connection:
                 lines = 0
                 for line in self.file:
                         print line
-                        line += 1
+                        lines += 1
                         line = line.split(',')
                         line[0] = str(line[0])
                         line[1] = int(line[1])
