@@ -15,8 +15,13 @@ class Connection:
                         self.timeout = float(kwargs.get('timeout', None))
                 else:
                         self.timeout = 0.5
-                f = open(self.path, 'r')
-                self.file = f.readlines()
+                try:
+                        f = open(self.path, 'r')
+                        self.file = f.readlines()
+                except IOError:
+                        print "Cant find path: " + str(self.path)
+                        print "Check file and restart the script"
+                        exit()
                 self.peers = []
                 self.sockets = []
                 self.databuffer = [] #TODO: named tuple or json
