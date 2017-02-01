@@ -22,12 +22,15 @@ class Connection:
                 self.databuffer = [] #TODO: named tuple or json
 
         def getpeers(self):
+                lines = 0
                 for line in self.file:
                         print line
+                        line += 1
                         line = line.split(',')
                         line[0] = str(line[0])
                         line[1] = int(line[1])
                         self.peers.append(line)
+                print "Loaded " + str(lines) + " peers."
                 return self.peers
 
         def connect(self):  # TODO: add progressbar from offchuck/textprogressbar
