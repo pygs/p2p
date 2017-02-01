@@ -42,6 +42,7 @@ class Connection:
                                 self.sockets.append(s)
                         except socket.timeout:
                                 print "Cannot connect to: " + str(a[0]) + ':' + str(a[1])
+                        s.settimeout(None)
                 return self.sockets
 
         def broadcast(self, message):
