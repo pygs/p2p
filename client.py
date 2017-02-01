@@ -19,6 +19,7 @@ class Connection:
                 self.file = f.readlines()
                 self.peers = []
                 self.sockets = []
+                self.databuffer = [] #TODO: named tuple or json
 
         def getpeers(self):
                 for line in self.file:
@@ -60,6 +61,7 @@ class Connection:
                 self.mysocket.listen(1)
                 conn, addr = self.mysocket.accept()
                 data = conn.recv(1024)
+                self.databuffer.append(data) #TODO: namedtuple or json with hashes
                 print str(addr) + " | " + data
             return False
 
