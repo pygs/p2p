@@ -2,7 +2,7 @@
 P2P network written in python. 90% of this project has been done in the classroom at school, because lessons were too boring
 
 ###Funcs:
-   ###class Connection:
+####class Connection:
    
     Func | Returns
     --- | ---
