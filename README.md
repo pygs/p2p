@@ -3,12 +3,14 @@ P2P network written in python. 90% of this project has been done in the classroo
 
 ###Funcs:
   - class Connection:
-    - init(path, ip(as string), port(as int), timeout=0.5) : getting path to file with peers and timeout(for socket connection, not required, 0.5s as default) as float in seconds, returns nothing
-    - getPeers() : returning array of peers
-    - connect() : returning array of sockets
-    - broadcast(message) : sending message to all, returns number of sended messages
-    - server() : recieve messages | should run as thread 
-    - sendinfo() : autosending messages, will be used to sending info about datachain(probably hashes)
+    Func | Returns
+    --- | ---
+    init(path, ip(as string), port(as int), timeout=0.5(optional)) | nothing
+    getPeers() | array of peers(string)
+    connect() | array of sockets
+    broadcast(message) | number of sended messages
+    server() | nothing
+    sendinfo() | nothing
 
 #### TODO:
   - make TODO list
