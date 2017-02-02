@@ -15,6 +15,9 @@ P2P network written in python. 90% of this project has been done in the classroo
     **server()** | nothing
     **sendinfo()** | nothing
 
+###Libs:
+####- pycrypto
+
 #### TODO:
   - make TODO list
   - check at 2017.02.15
