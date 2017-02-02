@@ -3,6 +3,7 @@ P2P network written in python. 90% of this project has been done in the classroo
 
 ###Funcs:
    ####class Connection:
+   
     Func | Returns
     --- | ---
     init(path, ip(as string), port(as int), timeout=0.5(optional)) | nothing
