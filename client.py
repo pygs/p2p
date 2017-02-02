@@ -4,6 +4,8 @@ import socket
 import thread
 import time
 
+from Crypto.Hash import SHA512
+
 class Connection:
 
         def __init__(self, path, ip, port, *args, **kwargs):
@@ -76,7 +78,11 @@ class Connection:
 
         def sendinfo(self):
             while 1:
-                self.broadcast(str(self.ip) + " | " + "hash or something")
+                fileHash = SHA512.new()
+                fileHash.update('supersafetysalt' + self.file + 'changethisplease')
+                fileHash = fileHash.hexdigest()
+                data = str(self.ip) + ' ,' + str(fileHash)
+                self.broadcast(data)
                 time.sleep(1)
 
 
