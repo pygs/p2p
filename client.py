@@ -81,7 +81,7 @@ class Connection:
                 fileHash = SHA512.new()
                 fileHash.update('supersafetysalt' + self.file + 'changethisplease')
                 fileHash = fileHash.hexdigest()
-                data = str(self.ip) + ' ,' + str(fileHash)
+                data = str(self.ip) + " ," + str(fileHash) + " ," + str(self.file)
                 self.broadcast(data)
                 time.sleep(1)
 
