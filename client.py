@@ -79,6 +79,7 @@ class Connection:
                 self.mysocket.listen(1)
                 conn, addr = self.mysocket.accept()
                 data = conn.recv(1024)
+                data = data.split(',')
                 self.databuffer.append(data) #TODO: namedtuple or json with hashes
                 print str(addr) + " | " + data
             return False
