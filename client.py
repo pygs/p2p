@@ -27,6 +27,7 @@ class Connection:
                 self.peers = []
                 self.sockets = []
                 self.databuffer = [] #TODO: named tuple or json
+                self.sentAll = 0
 
         def getpeers(self):
                 lines = 0
@@ -62,9 +63,10 @@ class Connection:
                                 success += 1
                         except socket.timeout:
                                 failed += 1
-                print "Sended: " + str(success)
+                print "Sent: " + str(success)
                 print "Failed: " + str(failed)
                 self.sockets = []
+                self.sentAll = self.sentAll + success
                 return success
 
         def server(self):
