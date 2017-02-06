@@ -14,7 +14,11 @@ class Connection:
                 self.mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.port = port
                 if kwargs.get('timeout', None):
-                        self.timeout = float(kwargs.get('timeout', None))
+                        try:
+                                self.timeout = float(kwargs.get('timeout', None))
+                        except:
+                                print "Cannot set timeout, setting 0.5 as default"
+                                self.timeout = 0.5
                 else:
                         self.timeout = 0.5
                 try:
