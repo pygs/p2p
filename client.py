@@ -65,6 +65,7 @@ class Connection:
                 print "Sended: " + str(success)
                 print "Failed: " + str(failed)
                 self.sockets = []
+                return success
 
         def server(self):
             self.mysocket.bind((self.ip, self.port))
