@@ -54,15 +54,15 @@ class Connection:
 
         def broadcast(self, message):
                 self.connect()
-                ok = 0
+                success = 0
                 failed = 0
                 for s in self.sockets:
                         try:
                                 s.sendall(message)
-                                ok += 1
+                                success += 1
                         except socket.timeout:
                                 failed += 1
-                print "Sended: " + str(ok)
+                print "Sended: " + str(success)
                 print "Failed: " + str(failed)
                 self.sockets = []
 
