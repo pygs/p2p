@@ -73,7 +73,7 @@ class Connection:
                 self.sentAll = self.sentAll + success
                 return success
 
-        def server(self):
+        def server(self): #TODO: checking data from clients
             try:
                 self.mysocket.bind((self.ip, self.port))
             except:
