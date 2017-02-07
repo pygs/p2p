@@ -74,7 +74,11 @@ class Connection:
                 return success
 
         def server(self):
-            self.mysocket.bind((self.ip, self.port))
+            try:
+                self.mysocket.bind((self.ip, self.port))
+            except:
+                print "Cannot create server..."
+                return False
             while 1:
                 self.mysocket.listen(1)
                 conn, addr = self.mysocket.accept()
