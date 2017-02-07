@@ -87,12 +87,16 @@ class Connection:
                 self.databuffer.append(data) #TODO: namedtuple or json with hashes
                 print str(addr) + " | " + data
             return False
+        
+        def hash(self, plaintext):
+                hash = SHA512.new()
+                hash.update('supersafetysalt' + self.file + 'changethisplease')
+                hash = hash.hexdigest()
+                return hash
 
         def sendinfo(self):
             while 1:
-                fileHash = SHA512.new()
-                fileHash.update('supersafetysalt' + self.file + 'changethisplease')
-                fileHash = fileHash.hexdigest()
+                fileHash = self.hash(self.file)
                 data = str(self.ip) + " ," + str(fileHash) + " ," + str(self.file)
                 self.broadcast(data)
                 time.sleep(1)
