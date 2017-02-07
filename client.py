@@ -90,7 +90,7 @@ class Connection:
         
         def hash(self, plaintext):
                 hash = SHA512.new()
-                hash.update('supersafetysalt' + self.file + 'changethisplease')
+                hash.update('supersafetysalt' + plaintext + 'changethisplease')
                 hash = hash.hexdigest()
                 return hash
 
