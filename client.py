@@ -97,7 +97,7 @@ class Connection:
         def sendinfo(self):
             while 1:
                 fileHash = self.hash(self.file)
-                data = [str(self.ip), str(fileHash), str(self.file)]
+                data = [str(self.ip), str(fileHash), str(self.file)] #TODO: pickle
                 self.broadcast(data)
                 print data
                 time.sleep(1)
