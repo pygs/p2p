@@ -99,6 +99,7 @@ class Connection:
                 fileHash = self.hash(self.file)
                 data = str(self.ip) + " ," + str(fileHash) + " ," + str(self.file)
                 self.broadcast(data)
+                print data
                 time.sleep(1)
 
 
