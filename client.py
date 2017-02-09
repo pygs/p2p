@@ -102,7 +102,7 @@ class Connection:
                 time.sleep(1)
 
 
-test = Connection("test.txt", '127.0.0.1', 5005, timeout=0.5)
+test = Connection("test.txt", "127.0.0.1", 5005, timeout=0.5)
 test.getpeers()
 print test.connect()
 thread.start_new_thread(test.sendinfo())
